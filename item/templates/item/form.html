@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h1 class = "mb-6 text-3xl text-center text-pink-700 p-6 text-bold">{{ title }}</h1>
+
+    <form method = "post" action = "." enctype = "multipart/form-data">
+        {% csrf_token %}
+
+        <div class = "fluid-container bg-pink-100 p-3 ml-3 mr-3 rounded-xl">
+            {{ form.as_p }}
+        </div>
+
+        {% if form.errors or form.non_field_errors %}
+            <div class="mb-6 p-6 mx-auto bg-red-100 rounded-xl">
+                {% for field in form %}
+                    {{ field.errors }}
+                {% endfor %}
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+
+        <button class="block mt-2 mb-2 mx-auto p-3 bg-pink-500 hover:bg-pink-700 text-white font-bold rounded">Submit</button>
+    </form>
+
+{% endblock %}
