@@ -21,26 +21,45 @@
 
 <body>
  
-    <!-- NAVBAR -->
-    <nav class="py-4 px-4 flex justify-between items-center border-b bg-gray-100 border-gray-100">
-            <a href="/" class="navbar-brand">
-                <img src="{% static 'img/WeddingWizard.png' %}" alt="WeddingWizard" width="60" height="60">
-            </a>
+<!-- NAVBAR -->
+<nav class="py-4 px-4 flex justify-between items-center border-b bg-gray-100 border-gray-100">
+    <a href="/" class="navbar-brand">
+        <img src="{% static 'img/WeddingWizard.png' %}" alt="WeddingWizard" width="60" height="60">
+    </a>
 
-            <div class="space-x-6">
-                <a href="{% url 'item:new' %}" class="text-lg font-semibold hover:text-gray-500">New item</a>
-                <a href="{% url 'item:items' %}" class="text-lg font-semibold hover:text-gray-500">Browse</a>
+    <div class="d-flex flex-column flex-md-row align-items-center">
+        <a href="{% url 'item:items' %}" class="text-lg font-semibold hover:text-gray-500 d-flex align-items-center mx-2">
+            <span class="mr-2">Browse</span>
+        </a>
 
-                {% if user.is_authenticated %}
-                    <a href="{% url 'dashboard:index' %}" class="px-6 py-3 text-lg font-semibold bg-pink-400 text-white rounded-xl hover:bg-pink-600">Dashboard</a>
-                    <a href="#" class="px-6 py-3 text-lg font-semibold bg-pink-400 text-white rounded-xl hover:bg-pink-600">Cart</a>
-                {% else %}
-                    <a href="{% url 'core:signup' %}" class="px-6 py-3 text-lg font-semibold bg-pink-500 text-white rounded-xl hover:bg-pink-700">Sign up</a>
-                    <a href="{% url 'core:login' %}" class="px-6 py-3 text-lg font-semibold bg-pink-500 text-white rounded-xl hover:bg-pink-700">Log in</a>
-                {% endif %}
-            </div>
-    </nav>
-    <!-- END NAVBAR -->
+        {% if user.is_authenticated %}
+        <a href="{% url 'item:new' %}" class="text-lg font-semibold hover:text-gray-500 d-flex align-items-center">
+            <span class="mr-2">New item</span>
+        </a>
+
+        <a href="{% url 'dashboard:index' %}" class="px-6 py-3 text-lg font-semibold bg-pink-400 text-white rounded-xl hover:bg-pink-600">Dashboard</a>
+        
+        <div class="d-flex justify-content-md-between align-items-center mx-md-2 mx-2">
+            <a href="#" class="px-6 py-3 text-lg font-semibold bg-pink-400 text-white rounded-xl hover:bg-pink-600">Cart</a>
+
+            <!-- LOGOUT -->
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="px-6 py-3 text-lg font-semibold bg-pink-300 text-white rounded-xl hover:bg-pink-600 mx-2">Log Out</button>
+            </form>
+            <!-- END LOGOUT -->
+        </div>
+
+        {% else %}
+        <a href="{% url 'core:signup' %}" class="px-6 py-3 text-lg font-semibold bg-pink-500 text-white rounded-xl hover:bg-pink-700 mx-2">Sign up</a>
+        <a href="{% url 'core:login' %}" class="px-6 py-3 text-lg font-semibold bg-pink-500 text-white rounded-xl hover:bg-pink-700 mx-2">Log in</a>
+        {% endif %}
+    </div>
+</nav>
+<!-- END NAVBAR -->
+
+
+
 
 
 
@@ -73,6 +92,10 @@
         </div>
     </footer>
     <!-- END FOOTER -->
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/jquery.form.js' %}"></script>
+    <script src="{% static 'js/csrf.js' %}"></script>
 
   </body>
 </html>
