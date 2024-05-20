@@ -18,50 +18,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link href="{% static 'css/styles.css' %}" rel="stylesheet">
-
-    <style>
-        .b-example-divider {
-            width: 100%;
-            height: 3rem;
-            background-color: rgba(0, 0, 0, .1);
-            border: solid rgba(0, 0, 0, .15);
-            border-width: 1px 0;
-            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-        
-        }
-        .rounded-circle {
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.9);
-        }
-        .rounded{
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
-
-        }
-        .bd-placeholder-img {
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
-            }
-        .d-item 
-        {
-            height: 500px;
-            margin-bottom: 1px;
-            
-        }
-        .d-img 
-        {
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .featurette-heading {
-            font-size: 2em;
-        }
-        .fw-bold {
-            font-size: 2em;
-            margin-top: 10px;
-            
-        }
-
-        
-    </style>
 </head>
 <!-- END HEAD -->
 
@@ -110,7 +66,7 @@
 
 
     <!-- PAGE'S CONTENT -->
-    <div class="fluid-container p-1">
+    <div class="fluid-container">
         {% block content %}
         {% endblock %}
     </div>
@@ -122,8 +78,8 @@
     <!-- FOOTER -->
     <footer class="py-6 px-6 flex justify-between bg-pink-100">
         <div class="w-2/3 pr-10" >
-            <h3 class="mb-5 font-semibold text-pink-700">About</h3>
-            <p class="text-lg text-pink-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec </p>
+            <h3 class="mb-5 font-semibold text-pink-700 text-xl">About us</h3>
+            <p class="text-lg text-pink-700">At WeddingWizard, we simplify wedding planning with our all-in-one online service. No meetings, no stress—just add your desired products to your cart, and we’ll take care of the rest. Enjoy a seamless experience and a perfect wedding day with WeddingWizard.</p>
         </div>
 
             <div class="w-1/3">
