@@ -24,9 +24,26 @@
                 {{ form.password1 }}
             </div>
 
-            <div class="my-6 mx-auto text-xl">
-                <label class="block mb-2">Confirm Password</label>
-                {{ form.password2 }}
+            <div class="row my-6">
+                <div class="col-md-6 form-group text-xl">
+                    <label class="block mb-2">Your name</label>
+                    {{ form.partner1_name }}
+                </div>
+                <div class="col-md-6 form-group text-xl">
+                    <label class="block mb-2">Your partner's name</label>
+                    {{ form.partner2_name }}
+                </div>
+            </div>
+
+            <div class="row my-6">
+                <div class="col-md-6 form-group text-xl">
+                    <label class="block mb-2">Your birth year</label>
+                    {{ form.birth_year1 }}
+                </div>
+                <div class="col-md-6 form-group text-xl">
+                    <label class="block mb-2">Your partner's birth year</label>
+                    {{ form.birth_year2 }}
+                </div>
             </div>
 
             {% if form.errors or form.non_field_errors %}
