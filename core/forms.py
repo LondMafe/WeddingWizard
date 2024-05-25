@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from datetime import date
+from .models import Profile
 
 class SignupForm(UserCreationForm):
     partner1_name = forms.CharField(max_length=100, label="Nombre del integrante 1",
@@ -50,9 +51,54 @@ class SignupForm(UserCreationForm):
         if age1 < 18 or age2 < 18:
             self.add_error('birth_year', "Las personas deben tener más de 18 años.")
             
+    def save (self, commit=True):
+        user = super().save(commit=False)
+        user.is_client = True
+        
+        if commit:
+            user.save()
+            Profile.objects.create(user=user, user_type='client')
+            
+        return user
+            
 class LoginForm(AuthenticationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Username',
                                                              'class': 'w-full py-2 px-3 rounded-xl'}))
     
     password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password',
                                                                  'class': 'w-full py-2 px-3 rounded-xl'}))
+
+class SignupVendorsForm(UserCreationForm):
+    class Meta: 
+        model = User
+        fields = ('username', 'email', 'password1', 'password2', 'name', 'id')
+        
+    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Username',
+                                                            'class': 'w-full py-2 px-3 rounded-xl'}))
+    
+    email = forms.CharField(widget=forms.EmailInput(attrs={'placeholder': 'Email',
+                                                           'class': 'w-full py-2 px-3 rounded-xl'}))
+    
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password',
+                                                                 'class': 'w-full py-2 px-3 rounded-xl'}))
+    
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Confirm Password',
+                                                                 'class': 'w-full py-2 px-3 rounded-xl'}))
+    
+    name = forms.CharField(max_length=100, label="Vendor\' name", 
+                           widget=forms.TextInput(attrs={'placeholder': 'Your name',
+                                                         'class': 'w-full py-2 px-3 rounded-xl'}))
+    
+    id = forms.IntegerField(label="Vendor\'s ID", 
+                           widget=forms.NumberInput(attrs={'placeholder': 'Your ID',
+                                                           'class': 'w-full py-2 px-3 rounded-xl'}))
+    
+    def save (self, commit=True):
+        user = super().save(commit=False)
+        user.is_vendor = True
+        
+        if commit:
+            user.save()
+            Profile.objects.create(user=user, user_type='vendor')
+            
+        return user

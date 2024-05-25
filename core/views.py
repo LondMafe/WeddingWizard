@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 
 from item.models import Category, Item
 
-from .forms import SignupForm
+from .forms import SignupForm, SignupVendorsForm
 
 # Create your views here.
 
@@ -31,9 +31,20 @@ def signup(request):
     
     return render(request, 'core/signup.html', {
         'form': form,
-        
-    
     })
     
-    
+def signupVendors(request):
+    if request.method == 'POST':
+        form = SignupVendorsForm(request.POST)
+        
+        if form.is_valid():
+            form.save()
+            
+            return redirect('/login/')
+    else:
+        form = SignupVendorsForm()
+        
+    return render(request, 'core/signupVendors.html', {
+        'form': form,
+    })
     

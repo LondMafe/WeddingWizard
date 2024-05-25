@@ -1,0 +1,51 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Vendor's Signup{% endblock %}
+
+{% block content %}
+    <div class="w-1/2 my-3 mx-auto p-6 bg-gray-100 rounded-xl">
+        <h1 class="mb-6 text-3xl text-center">Vendor's Sign Up</h1>
+
+        <form method="post" action=".">
+            {% csrf_token %}
+            
+            <div class="my-6 mx-auto text-xl">
+                <label class="block mb-2 text-xl">Username</label>
+                {{ form.username }}
+            </div>
+
+            <div class="my-6 mx-auto text-xl">
+                <label class="block mb-2">Email</label>
+                {{ form.email }}
+            </div>
+
+            <div class="my-6 mx-auto text-xl">
+                <label class="block mb-2">Password</label>
+                {{ form.password1 }}
+            </div>
+
+            <div class="my-6 mx-auto text-xl">
+                <label class="block mb-2">Your name</label>
+                {{ form.name }}
+            </div>
+
+            <div class="my-6 mx-auto text-xl">
+                <label class="block mb-2">ID</label>
+                {{ form.id }}
+            </div>
+
+            {% if form.errors or form.non_field_errors %}
+                <div class="mb-6 p-6 mx-auto bg-red-100 rounded-xl">
+                    {% for field in form %}
+                        {{ field.errors }}
+                    {% endfor %}
+                    {{ form.non_field_errors }}
+                </div>
+            {% endif %}
+
+            <button type="submit" class="block mx-auto p-2 bg-pink-500 hover:bg-pink-700 text-white font-bold rounded">Sign Up</button>
+        </form>
+    </div>   
+    
+    <p>{{ message }}</p>
+{% endblock %}
