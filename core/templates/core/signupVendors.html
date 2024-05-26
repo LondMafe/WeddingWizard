@@ -19,9 +19,15 @@
                 {{ form.email }}
             </div>
 
-            <div class="my-6 mx-auto text-xl">
-                <label class="block mb-2">Password</label>
-                {{ form.password1 }}
+            <div class="row my-6">
+                <div class="col-md-6 form-group text-xl">
+                    <label class="block mb-2">Password</label>
+                    {{ form.password1 }}
+                </div>
+                <div class="col-md-6 form-group text-xl">
+                    <label class="block mb-2">Confirm password</label>
+                    {{ form.password2 }}
+                </div>
             </div>
 
             <div class="my-6 mx-auto text-xl">
