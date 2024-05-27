@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid mt-6 px-6 py-12 bg-pink-50 rounded-xl mb-12 mr-5 ml-5">
+    <h1 class="mb-12 text-4xl text-center text-bold text-pink-600 ">Edit profile</h1>
+
+    <h3 class="mb-12 text-2xl text-semibold">Hello {{ profile.partner1_name }} and {{ profile.partner2_name }}!</h3>
+
+    <p class="mb-4 text-lg">Your current email is: {{ user.email }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <div class="fluid-container mb-4">
+            <div class="flex items-center">
+                <label for="email" class="form-label mr-2 text-lg">New email:</label>
+                <input type="email" name="email" value="{{ user.email }}" class="form-control w-80 mr-2" id="email">
+                <button type="submit" class="px-6 py-3 text-lg font-semibold bg-pink-400 text-white rounded-xl hover:bg-pink-600 ml-2">Update Email</button>
+            </div>
+        </div>
+    </form>
+
+    <p class="mt-12 mb-12 text-lg">Change Language</p>
+
+    <a href="{% url 'core:deleteAccount' %}" class="mt-4 mb-4 px-6 py-3 text-lg font-semibold bg-pink-400 text-white rounded-xl hover:bg-pink-600 mx-2">Delete My Account</a>
+</div>
+{% endblock %}

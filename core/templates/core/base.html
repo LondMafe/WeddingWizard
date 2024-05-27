@@ -43,9 +43,8 @@
                 {% else %}
                     <a href="#" class="px-6 py-3 text-lg font-semibold bg-pink-400 text-white rounded-xl hover:bg-pink-600 mx-2">Cart</a>
 
+                    <a href="{% url 'core:profile' %}" class="px-6 py-3 text-lg font-semibold bg-pink-400 text-white rounded-xl hover:bg-pink-600 mx-2">Profile</a>
                 {% endif %}
-                
-                <a href="#" class="px-6 py-3 text-lg font-semibold bg-pink-400 text-white rounded-xl hover:bg-pink-600 mx-2">Profile</a>
                 
             <!-- LOGOUT -->
             <form action="{% url 'logout' %}" method="post">

@@ -101,3 +101,11 @@ class SignupVendorsForm(UserCreationForm):
                 vendor_identifier=self.cleaned_data['id']
             )
         return user
+
+class EmailUpdateForm(forms.ModelForm):
+    email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={'placeholder': 'Update your email address',
+                                                            'class': 'form-control w-full py-2 px-3 rounded-xl'}))
+
+    class Meta:
+        model = User
+        fields = ['email']
