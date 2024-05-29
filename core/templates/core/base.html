@@ -41,7 +41,12 @@
                 <a href="{% url 'dashboard:index' %}" class="px-6 py-3 text-lg font-semibold bg-pink-400 text-white rounded-xl hover:bg-pink-600 mx-2">Dashboard</a>
             
                 {% else %}
-                    <a href="#" class="px-6 py-3 text-lg font-semibold bg-pink-400 text-white rounded-xl hover:bg-pink-600 mx-2">Cart</a>
+                    <a href="{% url 'cart:cartDetail' %}" class="btn btn-outlinpink-400 px-6 py-3 text-lg font-semibold rounded-xl mx-2">
+                        <i class="bi-cart-fill me-1"></i>
+                        Cart
+                        <span class="badge bg-pink-400 text-white ms-1 rounded-pill"></span>
+                    </a>
+
 
                     <a href="{% url 'core:profile' %}" class="px-6 py-3 text-lg font-semibold bg-pink-400 text-white rounded-xl hover:bg-pink-600 mx-2">Profile</a>
                 {% endif %}

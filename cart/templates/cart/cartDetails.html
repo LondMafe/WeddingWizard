@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Cart{% endblock %}
+
+{% block content %}
+<!-- HEADER -->
+<header class="bg-pink-300 py-5">
+    <div class="container-fluid px-4 px-lg-5 my-5">
+        <h1 class="text-10xl font-bold text-white">Shopping Cart</h1>
+    </div>
+</header>
+<!-- END HEADER -->
+
+    <!--<h1>Cart Details</h1>
+    <table>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+        {% for item in cart %}
+            <tr>
+                <td>{{ item.product.name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.product.price }}</td>
+                <td>{{ item.total }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'cart:checkout' %}">Checkout</a>-->
+{% endblock %}
