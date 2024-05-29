@@ -28,7 +28,10 @@
             </div>
         {% else %}
             <a href="#" class="inline-block px-6 py-3 mt-6 text-lg font-semibold bg-pink-500 text-white rounded-xl hover:bg-pink-700">Contact Seller</a>
-            <a href="#" class="inline-block px-6 py-3 mt-6 text-lg font-semibold bg-pink-500 text-white rounded-xl hover:bg-pink-700">Add to Cart</a>
+
+            <p></p>
+            <button type="button" value="{{ item.id }}" class="inline-block px-6 py-3 mt-6 text-lg font-semibold bg-pink-500 text-white rounded-xl hover:bg-pink-700" id="addCart">Add to Cart</button>
+
         {% endif %}
     </div>
 </div>
@@ -52,4 +55,25 @@
             </div>
         {% endfor %}
     </div>
+
+    <script>
+        // Check if the button is clicked
+        $(document).on('click', '#addCart', function(e){
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '{% url "cart:cartAdd" %}',
+                data:{
+                    product_id: $(addCart).val(), 
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                    action: 'post'
+                },
+                success: function(json){
+                    console.log(json)
+                },
+                error: function(xhr, errmsg, err){}
+            });
+        });
+    </script>
+
 {% endblock %}

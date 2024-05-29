@@ -11,3 +11,15 @@ class Cart():
             
         # Make sure the cart is available on all pages of the site
         self.cart = cart
+    
+    def add(self, item):
+        # Get the item id
+        product_id = str(item.id)
+        
+        # Logic
+        if product_id in self.cart:
+            pass
+        else:
+            self.cart[product_id] = {'price': str(item.price)}
+            
+        self.session.modified = True
