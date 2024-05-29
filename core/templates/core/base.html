@@ -41,11 +41,13 @@
                 <a href="{% url 'dashboard:index' %}" class="px-6 py-3 text-lg font-semibold bg-pink-400 text-white rounded-xl hover:bg-pink-600 mx-2">Dashboard</a>
             
                 {% else %}
-                    <a href="{% url 'cart:cartDetail' %}" class="btn btn-outlinpink-400 px-6 py-3 text-lg font-semibold rounded-xl mx-2">
-                        <i class="bi-cart-fill me-1"></i>
-                        Cart
-                        <span class="badge bg-pink-400 text-white ms-1 rounded-pill"></span>
-                    </a>
+                <a href="{% url 'cart:cartDetail' %}" class="btn bg-pink-400 px-6 py-3 text-lg text-white font-semibold rounded-xl mx-2 hover:bg-pink-600 d-flex align-items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-bag-heart me-2" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0M14 14V5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1M8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132"/>
+                    </svg>
+                    <span>Cart</span>
+                    <span class="badge bg-white text-pink-400 ms-2 rounded-pill">0</span>
+                </a>
 
 
                     <a href="{% url 'core:profile' %}" class="px-6 py-3 text-lg font-semibold bg-pink-400 text-white rounded-xl hover:bg-pink-600 mx-2">Profile</a>
