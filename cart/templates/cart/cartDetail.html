@@ -25,7 +25,7 @@
                                     <p class="text-lg">Quantity:</p>
                                     </div>
                                     <div class="col-md-2">
-                                        <select class="form-select" id="qtyCart">
+                                        <select class="form-select" id="select{{ item.id }}">
                                             <option selected>
                                                 {% for key, value in quantities.items %}
                                                     {% if key == item.id|slugify %}
@@ -39,6 +39,9 @@
                                             <option value="4">4</option>
                                             <option value="5">5</option>
                                         </select>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button type="button" data-index="{{ item.id }}" class="btn text-lg font-semibold bg-pink-400 text-white rounded-xl hover:bg-pink-600 updateCart">Update</button>
                                     </div>
                             </div>
                                 
@@ -55,5 +58,33 @@
                 {% endif %}
             </div>
           </div>
+
+
+
+
+<script>
+    // Check if the button is clicked
+    $(document).on('click', '.updateCart', function(e){
+        e.preventDefault();
+        // Grab the item id
+        var itemId = $(this).data('index');
+        var quantity = $('#select' + itemId + ' option:selected').text();
+
+        $.ajax({
+            type: 'POST',
+            url: '{% url "cart:cartUpdate" %}',
+            data:{
+                product_id: itemId,
+                product_qty: quantity,
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                action: 'post'
+            },
+            success: function(json){
+                location.reload();
+            },
+            error: function(xhr, errmsg, err){}
+        });
+    });
+</script>
 
 {% endblock %}
