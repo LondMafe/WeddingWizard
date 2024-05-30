@@ -11,7 +11,7 @@ def index(request):
     return render(request, 'core/index.html')
 
 def services(request):
-    items = Item.objects.filter(is_available=True)[0:6]
+    items = Item.objects.filter(is_available=True)[0:30]
     categories = Category.objects.all()
     
     return render(request, 'core/services.html', {

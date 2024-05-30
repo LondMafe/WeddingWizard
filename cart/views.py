@@ -9,7 +9,8 @@ def cartDetail(request):
     # Get the cart
     cart = Cart(request)
     cartItems = cart.getItems
-    return render(request, 'cart/cartDetail.html', {"cartItems": cartItems })
+    quantities = cart.getQuantities
+    return render(request, 'cart/cartDetail.html', {"cartItems": cartItems, "quantities": quantities})
 
 def cartAdd(request):
     # Get the cart
@@ -18,12 +19,13 @@ def cartAdd(request):
     if request.POST.get('action') == 'post':
         # Get stuff
         product_id = int(request.POST.get('product_id'))
+        product_qty = int(request.POST.get('product_qty'))
         
         # Lookup the item in the database
         item = get_object_or_404(Item, id=product_id)
         
         # Save the item to the cart (to the session)
-        cart.add(item=item)
+        cart.add(item=item, quantity=product_qty)
         
         # Get cart quantity
         cartQuantity = cart.__len__()

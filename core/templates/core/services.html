@@ -3,28 +3,45 @@
 
 
 {% block content %}
-    <div class="fluid-container mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+    <div class="fluid-container mt-6 mb-6 px-6 py-12 bg-gray-100 rounded-xl">
         <h1 class="mb-12 text-2xl text-center text-bold">Newest Items</h1>
 
-        <div class="fluid-container grid grid-cols-5 gap-3">
-            {% for item in items %}
-                <div>
-                    <a href=" {% url 'item:detail' item.id %}">
-                        <div>
-                            <img src="{{ item.image.url }}" class="rounded-t-xl">
-                        </div>
-
-                        <div class="p-6 bg-white rounded-b-xl">
-                            <h2 class="text-2xl">{{ item.name }}</h2>
-                            <p class="text-gray-500">Price: {{ item.price }}</p>
-                        </div>
-                    </a>
-                </div>
-            {% endfor %}
+        <div class="col-span-3">
+            <div class="fluid-container grid grid-cols-5 gap-3 mt-4 mr-4">
+                {% for item in items %}
+                    <div>
+                        <a href=" {% url 'item:detail' item.id %}">
+                            <div>
+                                <img src="{{ item.image.url }}" class="rounded-t-xl">
+                            </div>
+    
+                            <div class="p-6 bg-white rounded-b-xl">
+                                <h2 class="text-2xl">{{ item.name }}</h2>
+                                <p class="text-gray-500">Price: {{ item.price }}</p>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 
-	<div class="fluid-container mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+    <div class="container-fluid text-center mt-5 mt-lg-6 p-3">
+        <div class="row align-items-center" style="min-height: 25vh;">
+    
+        <div class="col-sm-6 d-flex justify-content-end align-items-center">
+            <h1 class="text-4xl font-semibold text-pink-600"data-section="landing_services" data-value="s-text-1">Find more options!</h1>
+        </div>
+    
+        <div class="col-sm-6 d-flex justify-content-start align-items-center">
+            <a href="{% url 'item:items' %}" class="px-6 py-3 text-lg font-semibold bg-pink-400 text-white rounded-xl hover:bg-pink-600">
+            <span data-section="landing_services" data-value="s-text-2">Browse</span>
+            </a>
+        </div>
+        </div>
+    </div>
+
+	<div class="fluid-container mt-6 mb-6 px-6 py-12 bg-gray-100 rounded-xl">
         <h1 class="mb-12 text-2xl text-center text-bold">Categories</h1>
 
         <div class="fluid-container grid grid-cols-5 gap-3">
