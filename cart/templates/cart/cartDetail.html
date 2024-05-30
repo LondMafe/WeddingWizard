@@ -6,9 +6,30 @@
     <div class="container-fluid p-4 bg-gray-100 rounded-xl text-center mt-5 mb-5">
         <h1 class="text-3xl font-bold text-pink-600">Shopping Cart</h1>
 
-        <div class="container-fluid p-4 rounded-xl mt-5 mb-5 bg-white">
-        </br></br></br></br></br>
-        </div>
-    </div>
+        <div class="container-fluid p-4 rounded-xl mt-5 mb-5 d-flex justify-content-center">
+            <div class="d-flex flex-column align-items-center w-100">
+                {% if cartItems %}
+                    {% for item in cartItems %}
+                        <div class="card mb-3" style="max-width: 1000px;">
+                            <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="{{ item.image.url }}" class="img-fluid rounded-start" alt="{{ item.name }}">
+                            </div>
+                            <div class="col-md-8 d-flex align-items-center">
+                                <div class="card-body">
+                                <h5 class="card-title font-semibold text-lg">{{ item.name }}</h5>
+                                <small class="card-text text-gray-400">{{ item.description }}</small>
+                                <p class="card-text">Price: {{ item.price }}</p>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="text-lg"><em>Your cart is empty</em></p>
+                    <br><br><br><br><br><br><br><br><br><br><br><br>
+                {% endif %}
+            </div>
+          </div>
 
 {% endblock %}
