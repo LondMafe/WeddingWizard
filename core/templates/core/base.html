@@ -18,6 +18,101 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
+    <style>
+        
+        .google-translate {
+            display: grid;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            height: 10px;
+            width: 70px;
+            
+            
+        }
+        
+        /* Estilo para ocultar el encabezado del widget de Google Translate */
+        iframe.VIpgJd-ZVi9od-ORHb-OEVmcd.skiptranslate {
+        display: none !important;
+        }
+
+        .skiptranslate.goog-te-gadget-container {
+            display: none;
+        }
+
+        /* Estilos personalizados para el widget de Google Translate */
+        .skiptranslate.goog-te-gadget {
+            weight: auto;
+            height: auto;
+            /* Establecer un fondo y color de texto */
+            background-color: #f5f5f5;
+            color: #333;
+            /* Ajustar el padding y margen */
+            padding: 10px;
+            margin-bottom: 10px;
+            /* Establecer un borde y redondear las esquinas */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            /* Alinear el texto al centro */
+            text-align: center;
+        }
+
+        /* Estilos para el enlace "Traductor de Google" */
+        .skiptranslate.goog-te-gadget a {
+            /* Cambiar el color y subrayar al pasar el ratón */
+            color: #4285f4;
+            text-decoration: none;
+        }
+
+        .skiptranslate.goog-te-gadget a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Ocultar el logo de Google Translate */
+        .skiptranslate.goog-te-gadget img {
+            display: none;
+        }
+
+        
+
+        /* Estilo para el selector de idioma */
+        .goog-te-combo {
+            /* Cambiar el fondo y el color de texto */
+            background-color: #ffffff;
+            color: #333333;
+            /* Ajustar el padding y margen */
+            padding: 8px 12px;
+            margin: 0;
+            /* Establecer un borde y redondear las esquinas */
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            /* Establecer el tamaño de la fuente y hacer que sea más legible */
+            font-size: 14px;
+            font-weight: normal;
+            /* Hacer que el cursor sea un puntero al pasar el ratón */
+            cursor: pointer;
+            /* Establecer una apariencia más amigable al usuario */
+            appearance: none;
+        }
+
+        /* Estilo para el hover del selector de idioma */
+        .goog-te-combo:hover {
+            
+            /* Cambiar el color de fondo al pasar el ratón */
+            background-color: #f0f0f0;
+        }
+
+        /* Estilo para el foco del selector de idioma */
+        .goog-te-combo:focus {
+            /* Cambiar el color de borde al obtener el foco */
+            border-color: #007bff;
+            /* Añadir un efecto de sombra al obtener el foco */
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+
+    </style>
+    
+
 </head>
 <!-- END HEAD -->
 
@@ -112,6 +207,21 @@
 <!-- END FOOTER -->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+<!-- GOOGLE TRANSLATE -->
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+	        new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'es,en,fr,it', layout: google.translate.TranslateElement.InlineLayout.VERTICAL, gaTrack: true}, 'google_translate_element');
+        }
+    </script>
+    
+    
+
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- END GOOGLE TRANSLATE -->
 
   </body>
 </html>
