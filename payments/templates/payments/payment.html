@@ -1,0 +1,37 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Pay{% endblock %}
+
+{% block content %}
+<div class="container-fluid rounded-xl bg-gray-100 p-4 mt-4 mb-4 w-75 mx-auto text-center">
+    <h1 class="text-4xl font-bold mb-4">Pay</h1>
+    <form method="post" action="{% url 'payments:creditCardPayment' %}">
+        {% csrf_token %}
+        <div class="mb-4">
+            <label for="cardHolder" class="block text-lg font-medium text-gray-700">Card Holder Name</label>
+            <input type="text" name="cardHolder" id="cardHolder" required maxlength="100" 
+                   class="mt-1 block w-75 mx-auto px-3 py-2 border border-gray-300 rounded-xl">
+        </div>
+        <div class="mb-4">
+            <label for="cardNumber" class="block text-lg font-medium text-gray-700">Card Number</label>
+            <input type="text" name="cardNumber" id="cardNumber" required pattern="\d{16}" 
+                   class="mt-1 block w-75 mx-auto px-3 py-2 border border-gray-300 rounded-xl" 
+                   title="Card number should be 16 digits">
+        </div>
+        <div class="mb-4">
+            <label for="expirationDate" class="block text-lg font-medium text-gray-700">Expiration Date</label>
+            <input type="month" name="expirationDate" id="expirationDate" required 
+                   class="mt-1 block w-75 mx-auto px-3 py-2 border border-gray-300 rounded-xl">
+        </div>
+        <div class="mb-4">
+            <label for="cvv" class="block text-lg font-medium text-gray-700">CVV</label>
+            <input type="text" name="cvv" id="cvv" required pattern="\d{3}" 
+                   class="mt-1 block w-75 mx-auto px-3 py-2 border border-gray-300 rounded-xl" 
+                   title="CVV should be 3 digits">
+        </div>
+        <button type="submit" class="justify-center ml-4 mr-4 py-2 px-4 font-lg rounded-md font-bold text-white bg-pink-600 hover:bg-pink-700">
+            Pay
+        </button>
+    </form>
+</div>
+{% endblock %}
