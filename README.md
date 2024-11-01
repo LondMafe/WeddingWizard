@@ -1,11 +1,10 @@
 # Wedding Wizard
 
-![WeddingWizard](readme\ww.png)
-<img align="center" alt="WeddingWizard" width="400" src="readme\ww.png">
+<img align="center" alt="WeddingWizard" width="500" src="readme\ww.png">
 
 WeddingWizard is a comprehensive online platform designed to simplify wedding planning by offering couples a user-friendly interface to explore, personalize, and coordinate all aspects of their wedding, from vendors to guest management, in one centralized location.
 
-![WeddingWizard](readme\WWstart.png)
+<img align="center" alt="WeddingWizard" width="500" src="readme\WWstart.png">
 
 _Instructions_
 
