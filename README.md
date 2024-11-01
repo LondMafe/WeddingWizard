@@ -10,7 +10,3 @@ _Instructions_
 
 To run use: python manage.py runserver
 You need to have Django installed
-
-<video width="320" height="240" controls>
-  <source src="https://drive.google.com/file/d/1E4-Ool5EM43cDAqom_sr9SCryKEE9KYp/view?usp=sharing" type="video/mp4">
-</video>
